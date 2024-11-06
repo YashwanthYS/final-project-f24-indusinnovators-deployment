@@ -1,10 +1,10 @@
 # CMU Interactive Data Science Final Project
 
 * **Team members**:
-  * Contact person: TODO@andrew.cmu.edu
-  * TODO@andrew.cmu.edu
-  * TODO@andrew.cmu.edu
-  * TODO@andrew.cmu.edu
+  * Contact person: gakiti@andrew.cmu.edu
+  * yashwany@andrew.cmu.edu
+  * shreyj@andrew.cmu.edu
+  * kaavyas@andrew.cmu.edu
 
 ## Work distribution
 
@@ -14,7 +14,7 @@ Update towards the end of the project.
 
 ### Proposal
 
-- [ ] A completed [proposal](Proposal.md). Each student should submit the URL that points to this file in their github repo on Canvas.
+- [x] A completed [proposal](Proposal.md). Each student should submit the URL that points to this file in their github repo on Canvas.
 
 ### Sketches
 
