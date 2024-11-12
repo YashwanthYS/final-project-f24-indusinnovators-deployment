@@ -27,6 +27,29 @@ We plan to create a global visualization illustrating how rising temperatures ac
 
 Do you have to do substantial data cleanup? What quantities do you plan to derive from your data? How will data processing be implemented?  Show some screenshots of your data to demonstrate you have explored it. [Kavya, Shrey]
 
+### Data Processing for Temperature data
+> Do you have to do substantial data cleanup?
+Extensive data cleaning isn't required as the dataset is partyl processed before being uploaded to Kaggle. However, the following steps are still required:
+- Limiting data to 1980-01 to 2013-08
+- renaming and removing redundant countries:
+  - ![Clean up steps for countries](EDA_Global_Temp_Data/country_clean_up_steps.png)
+  - We also replicate data from Sudan for South Sudan because the two are very close geographically this mehtod is simplistic and more logical than imputing average as per geo-coordinates of all the countries.
+
+> What quantities do you plan to derive from your data?
+- We derive the monthly temperature data for all (most) countries across the globe from 1980 to 2013
+- We also derive the monthly global avg temperature for the global ocean across the globe from 1980 to 2013
+
+> How will data processing be implemented?
+Data processing has been implemented using **Pandas** in [EDA_Global_Temp_Data Python Notebook](EDA_Global_Temp_Data/EDAGlobalTemperature.ipynb)
+
+> Show some screenshots of your data to demonstrate you have explored it.
+![Country-wise temperature data](EDA_Global_Temp_Data/country_data.png)
+![Country-wise temperature data statistics](EDA_Global_Temp_Data/country_stats.png)
+![Country-wise temperature line chart](EDA_Global_Temp_Data/country_avg_temp_trend.png)
+![Ocean temperature data](EDA_Global_Temp_Data/ocean_data.png)
+![Ocean temperature data statistics](EDA_Global_Temp_Data/ocean_stats.png)
+![Ocean temperature line chart](EDA_Global_Temp_Data/ocean_avg_temp_trend.png)
+![Exploring the data](EDA_Global_Temp_Data/Sample_temp_EDA.png)
 
 ## System Design
 
