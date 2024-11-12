@@ -19,3 +19,19 @@ We plan to create a global visualization illustrating how rising temperatures ac
 ## FlowChart
 
 ![Phases and Stages of Proposed Solution](InitialProposalFlowDiagram.png)
+
+
+# Sketches and Data Analysis
+
+## Data Processing
+
+Do you have to do substantial data cleanup? What quantities do you plan to derive from your data? How will data processing be implemented?  Show some screenshots of your data to demonstrate you have explored it. [Kavya, Shrey]
+
+
+## System Design
+How will you display your data? What types of interactions will you support? Provide some sketches that you have for the system design. [Guna, Yashwanth]
+
+![Phases and Stages of Proposed Solution](sketches/sketch_1.png)
+![Phases and Stages of Proposed Solution](sketches/sketch_2.png)
+![Phases and Stages of Proposed Solution](sketches/sketch_3.png)
+![Phases and Stages of Proposed Solution](sketches/sketch_4.png)
