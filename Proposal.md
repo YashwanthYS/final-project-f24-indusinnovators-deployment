@@ -39,7 +39,7 @@ The motivation for using this combined bar and line chart is to visually analyze
 This plot visually illustrates how hurricane severity has fluctuated over the years, providing an intuitive way to observe trends and patterns in hurricane intensity. Each circle on the chart represents a specific severity level for a given year, with the radius of each circle corresponding to the number of hurricanes at that level of intensity. By presenting the data this way, the plot highlights variations in hurricane severity over time, offering insights into whether extreme hurricanes are becoming more frequent, or if certain severity levels are occurring more consistently.
 
 ### Sketch 3 :
-![Phases and Stages of Proposed Solution](sketches/sketch_3.png)
+![Phases and Stages of Proposed Solution](sketches/sketch_3.jpeg)
 
 ### Sketch 4:
-![Phases and Stages of Proposed Solution](sketches/sketch_4.png)
+![Phases and Stages of Proposed Solution](sketches/sketch_4.jpeg)
