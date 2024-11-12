@@ -29,9 +29,17 @@ Do you have to do substantial data cleanup? What quantities do you plan to deriv
 
 
 ## System Design
-How will you display your data? What types of interactions will you support? Provide some sketches that you have for the system design. [Guna, Yashwanth]
 
+### Sketch 1 : Yearly Variations of Global Temperature & Hurricane Occurances
 ![Phases and Stages of Proposed Solution](sketches/sketch_1.png)
+The motivation for using this combined bar and line chart is to visually analyze the impact of global warming on both land and ocean temperatures over time, alongside changes in the frequency of hurricanes. This visualization makes it easier to detect trends, compare fluctuations in temperature with hurricane occurrences, and assess how shifts in global climate may influence extreme changes in hurricanes over the years.
+
+### Sketch 2 : Hurricane Severity vs Yearly Changes
 ![Phases and Stages of Proposed Solution](sketches/sketch_2.png)
+This plot visually illustrates how hurricane severity has fluctuated over the years, providing an intuitive way to observe trends and patterns in hurricane intensity. Each circle on the chart represents a specific severity level for a given year, with the radius of each circle corresponding to the number of hurricanes at that level of intensity. By presenting the data this way, the plot highlights variations in hurricane severity over time, offering insights into whether extreme hurricanes are becoming more frequent, or if certain severity levels are occurring more consistently.
+
+### Sketch 3 :
 ![Phases and Stages of Proposed Solution](sketches/sketch_3.png)
+
+### Sketch 4:
 ![Phases and Stages of Proposed Solution](sketches/sketch_4.png)
