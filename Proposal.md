@@ -25,7 +25,28 @@ We plan to create a global visualization illustrating how rising temperatures ac
 
 ## Data Processing
 
-Do you have to do substantial data cleanup? What quantities do you plan to derive from your data? How will data processing be implemented?  Show some screenshots of your data to demonstrate you have explored it. [Kavya, Shrey]
+Do you have to do substantial data cleanup? What quantities do you plan to derive from your data? How will data processing be implemented?  Show some screenshots of your data to demonstrate you have explored it. 
+
+We have two datasets in consideration,hurricane and temperature datasets. Once both are cleaned, we will merge them by year. Below are details for processing the individual datasets.
+
+### Data Processing for Hurricane Dataset
+##### Do you have to do substantial data cleanup? 
+The database is well maintaned so there is no need to perform extensive data cleaning. However, there are some considerations to ensure we have a coherent dataset:
+- Filtering track_type of data: There multiple types of tracking data, such as 'main' and 'provisional'. A storm may have more than one set of tracking data applied to it. 'main' is the most consistent and up-to-date type of tracking data, so we can manage this by dropping all other types of data. This decreases the total amount of data available by 3.5%.
+- Managing column size: There are 174 columns in this database. Most columns are reports on storm category, maxmimum wind and pressure from different WMO agencies. To manage this, we can do the following:
+  - WMO Agency: There is a set of columns [WMO_WIND,WMO_PRES,WMO_AGENCY] that list the measurements that come from the WMO agency resposnsible for tracking that storm (based on its geographic location). These measurements correspond with the measurements from the separate set of columns that correspond to that agency, ex. [BOM_WIND,BMO_PRES] for the BOM WMO. Thus, we only need to retain the WMO_* columns. Since each WMO_Agency calculates wind speeds different, we keep WMO_AGENCY so we can apply the right scaling.
+  - Severity/Category of hurricane: Similar to the wind pressure and speed, each WMO agency has its own type of hurricane category and scale system. If we wish to compare results across the globe, we need a single type of scale. We have elected for the USA SSHS system since that is the most consistent across the database. However, not all storms, especially more so in earlier years, do not have a USA SSHS score. In this case, we may need to discsus more elegant solutions to include other WMO scales.
+- With this, we have reduced the dataset to a much more manageable set. We can perform cleaning on some columns, such as restricting the season/year from 1980-2024, and replacing all the ' ' in the datasets with pd.NA.
+  
+##### What quantitites do you plan to derive from your data?
+We will mostly focus on deriving maximum wind speed and pressure. From an initial inspection of the dataset, it seems that we may need to standardize measurements, as different WMO agencies will record this speeds in different units. The other feature we plan to extract is the category/severity of the hurricane. In most cases, this should be provided by the USA SSHS, but we will need to consider what to do in cases where it is not available.
+
+##### How will data processing be implemented?
+We have set up a skeleton for data processing [here](https://colab.research.google.com/drive/1ReqCUN6d5bqcvO3Fnh4P9Wrdh_HxDgtE?usp=sharing). As we decide on a standardized format for wind,pressure, and category, we will add these as columns to the dataset.
+
+
+##### Screenshots of data exploration
+
 
 ### Data Processing for Temperature data
 > Do you have to do substantial data cleanup?
