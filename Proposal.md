@@ -46,7 +46,9 @@ We have set up a skeleton for data processing [here](https://colab.research.goog
 
 
 ##### Screenshots of data exploration
-
+![Dataset preview and filtering of storm tracking type](hurricane_data_exploration/storm_track_type.png)
+![Comparison of data across different agencies](hurricane_data_exploration/wmo_agency.png)
+![Storms without USA SSHS data by year](hurricane_data_exploration/usa_sshs_across_season.png)
 
 ### Data Processing for Temperature data
 > Do you have to do substantial data cleanup?
