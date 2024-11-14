@@ -89,6 +89,8 @@ This plot visually illustrates how hurricane severity has fluctuated over the ye
 
 ### Sketch 3 :
 ![Phases and Stages of Proposed Solution](sketches/sketch_3.jpeg)
+Since the earlier visualizations show how temperatures affect the number and intensity of hurricanes, we decided to illustrate how each hurricane’s position and intensity change over time. This visualization includes two levels of filters, allowing users to select a specific year and dataset. This gives users granular control over the visualization, enabling them to track hurricane movements and intensity changes over time. Hurricanes are represented as circles, with radii proportional to their intensity. Additionally, an interactive element displays basic information about each hurricane when hovered over.
 
 ### Sketch 4:
 ![Phases and Stages of Proposed Solution](sketches/sketch_4.jpeg)
+This visualization aims to convey the story we are trying to tell. It represents the global average land and ocean temperatures, as well as hurricanes on a globe. The motivation for this visualization was to give users a clear picture of how rising temperatures can lead to an increase in the number of hurricanes. Even this visualization includes an interactive element that displays basic information about each hurricane when hovered over.
