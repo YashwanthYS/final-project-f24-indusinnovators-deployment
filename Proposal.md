@@ -71,11 +71,10 @@ Data processing has been implemented using **Pandas** in [EDA_Global_Temp_Data P
 #### Show some screenshots of your data to demonstrate you have explored it.
 ![Country-wise temperature data](EDA_Global_Temp_Data/country_data.png)
 ![Country-wise temperature data statistics](EDA_Global_Temp_Data/country_stats.png)
- <!--  ![Country-wise temperature line chart](EDA_Global_Temp_Data/country_avg_temp_trend.png) -->
+
 ![Ocean temperature data](EDA_Global_Temp_Data/ocean_data.png)
 ![Ocean temperature data statistics](EDA_Global_Temp_Data/ocean_stats.png)
- <!--  ![Ocean temperature line chart](EDA_Global_Temp_Data/ocean_avg_temp_trend.png) -->
- <!--  ![Exploring the data](EDA_Global_Temp_Data/Sample_temp_EDA.png) -->
+
 
 ## System Design
 
@@ -94,3 +93,9 @@ Since the earlier visualizations show how temperatures affect the number and int
 ### Sketch 4:
 ![Phases and Stages of Proposed Solution](sketches/sketch_4.jpeg)
 This visualization aims to convey the story we are trying to tell. It represents the global average land and ocean temperatures, as well as hurricanes on a globe. The motivation for this visualization was to give users a clear picture of how rising temperatures can lead to an increase in the number of hurricanes. Even this visualization includes an interactive element that displays basic information about each hurricane when hovered over.
+
+## Exploratory Data Analysis
+Below are some initial inspections of the temperature data, to observe its overall shape and trends.
+![Country-wise temperature line chart](EDA_Global_Temp_Data/country_avg_temp_trend.png) 
+![Ocean temperature line chart](EDA_Global_Temp_Data/ocean_avg_temp_trend.png) 
+![Exploring the data](EDA_Global_Temp_Data/Sample_temp_EDA.png) 
