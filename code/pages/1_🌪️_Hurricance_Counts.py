@@ -3,8 +3,8 @@ import streamlit as st
 import altair as alt
 from scipy.stats import pearsonr
 
-hurricane_data = pd.read_csv("storm_filtered_data.csv")
-temperature_data = pd.read_csv("./temp_dataset/GlobalTemperatures.csv")
+hurricane_data = pd.read_csv("./data/storm_filtered_data.csv")
+temperature_data = pd.read_csv("./data/df_global.csv")
 
 st.set_page_config(page_title="Climate Trends", page_icon="🌎", layout="wide")
 st.title("🌎 Climate Trends: Hurricanes and Global Temperatures")

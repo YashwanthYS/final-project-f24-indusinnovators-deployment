@@ -8,7 +8,7 @@ from vega_datasets import data
 st.title("Global Storm Visualization")
 st.markdown("This interactive dashboard demonstrates storms from where and when they originated and tracks them across their journey. This visualization helps explain the lifecycle of storms.")
 
-df = pd.read_csv('storm_filtered_data.csv', skipinitialspace=True)
+df = pd.read_csv('./data/storm_filtered_data.csv', skipinitialspace=True)
 
 df['ISO_TIME'] = pd.to_datetime(df['ISO_TIME'])
 df_daily = df.groupby(['SID', 'SEASON', 'NUMBER', df['ISO_TIME'].dt.date]).agg({
