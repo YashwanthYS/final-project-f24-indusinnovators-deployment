@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import plotly.express as px
 import streamlit as st
-
+import numpy as np
 
 
 @st.cache_data
