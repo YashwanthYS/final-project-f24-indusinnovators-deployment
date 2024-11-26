@@ -4,9 +4,8 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import plotly.express as px
 import streamlit as st
-from shapely.geometry import Polygon
-import geopandas as gpd
-import numpy as np
+
+
 
 @st.cache_data
 def load(url):
