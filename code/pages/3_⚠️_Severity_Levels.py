@@ -5,7 +5,7 @@ import altair as alt
 
 st.title("🌪️ Global Storm Severity Levels Visualization vs Yearly Changes")
 
-storm_csv = "./data/storm_filtered_data.csv"
+storm_csv = "code/data/storm_filtered_data.csv"
 
 storm_df = pd.read_csv(storm_csv, index_col=0)
 

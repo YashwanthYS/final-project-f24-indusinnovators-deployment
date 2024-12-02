@@ -13,9 +13,9 @@ def load(url):
 
 
 
-storm_csv = "./data/storm_filtered_data.csv"
-country_csv = "./data/df_country.csv"
-global_csv = "./data/df_global.csv"
+storm_csv = "code/data/storm_filtered_data.csv"
+country_csv = "code/data/df_country.csv"
+global_csv = "code/data/df_global.csv"
 
 storm_df = pd.read_csv(storm_csv)
 country_df = pd.read_csv(country_csv)
