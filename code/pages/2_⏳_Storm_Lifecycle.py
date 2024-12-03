@@ -49,11 +49,23 @@ final_chart = alt.layer(
     )
 ).project('equalEarth').properties(width=800,height=400)
 
-
-# # Combine base map and storm points
-# final_chart = (base_map + storm_points).properties(
-#     width=800,
-#     height=400
-# )
-
 st.altair_chart(final_chart)
+
+
+st.markdown("## 📖 Insights")
+st.markdown("""
+- **Storm Origination**: Storms originate in ocean and rise in severity as they stay over the ocean.
+- **Storm Death**: Storms soon die down after hitting the land.
+- **USA_SSHS**: [USA_SSHS](https://en.wikipedia.org/wiki/Saffir%E2%80%93Simpson_scale) is the Saffir–Simpson Hurricane Scale which categorizes cyclones on a scale 1-5 with 5 being the most severe
+- **Nature**: Nature indicates the category of the storm, TS stands for thunder storm
+""")
+
+with st.expander("🌍 What Can We Learn?"):
+    st.markdown("""
+    - **Global Warming and Hurricanes**: With warmer oceans, storms can gather more energy from the ocean and wreak havoc on land
+    - **Interactive Exploration**: Use the slider to track storms every day across the globe. Use keyboard left and right buttons for easier control
+    """)
+
+
+with st.expander("🗂️ View Raw Data"):
+    st.write(selected_data)
