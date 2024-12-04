@@ -1,14 +1,35 @@
-# CMU Interactive Data Science Final Project
-
+# CMU Interactive Data Science Final Project : Global Temperatures and Their Impact on Hurricanes and Storms
 * **Team members**:
-  * Contact person: gakiti@andrew.cmu.edu
-  * yashwany@andrew.cmu.edu
-  * shreyj@andrew.cmu.edu
-  * kaavyas@andrew.cmu.edu
+  * Gunavardhan Akiti: gakiti@andrew.cmu.edu (contact person)
+  * Yashwanth Surendra: yashwany@andrew.cmu.edu
+  * Shrey Jain: shreyj@andrew.cmu.edu
+  * Kaavya Subramanian: kaavyas@andrew.cmu.edu
+ 
+ ## Summary Image 
+ Update.
 
-## Work distribution
+ ## Abstract
+ Update.
 
-Update towards the end of the project.
+## Streamlit App
+Update.
+
+ ## Video Link 
+ Update.
+
+## Work distribution and project process
+Generally, we directly collaborated on overall plans and ideas, and split up executables to work on independently. 
+- Project proposal: We all worked together to brainstorm ideas and locate datasets, and then discusssed and wrote our proposal together.
+- Sketches and Data Analysis: We all discussed ideas for data analysis and visualization, and after deciding on the final outputs, we split up the data cleaning process, with two people each working on a dataset. We also each took point on a visualization to develop, which we later built into a dashboard page.
+- Code development: As discussed before, we each built a separate page of the dashboard. Part of the team took point on building a predictive model for the data science project, and the others supplemented the development process in other ways. 
+- Writeup and Video: We each wrote different parts of the report and the video, and collectively reviewed the final product(s).
+
+
+## Running the software
+1. Clone the git respository locally and navigate into the directory: `cd final-project-f24-indusinnovators`
+2. Run `pip install -r requirements.txt` or `python -m pip install -r requirements.txt` to import all necessary packages and versions.
+3. Navigate to the code/ directory: `cd code`
+4. Run the homepage file using streamlit, which provides access to all other pages: `streamlit run HomePage.py `
 
 ## Deliverables
 
@@ -18,7 +39,7 @@ Update towards the end of the project.
 
 ### Sketches
 
-- [ ] Develop sketches/prototype of your project.
+- [X] Develop sketches/prototype of your project.
 
 ### Final deliverables
 
