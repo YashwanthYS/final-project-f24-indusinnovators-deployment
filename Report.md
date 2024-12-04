@@ -10,8 +10,8 @@ Our planet is heating up at an alarming pace, evidenced by 2023 being the hottes
 
 To generate meaningful insights, we focus on one of the extreme events, hurricanes, and demonstrate how the rising temperatures have made them more common and extreme. We provide evidence through interactive visualization and a predictive dashboard highlighting how worse the trend could be!
 
-
 ## Related Work
+
 
 ## Methods
 
