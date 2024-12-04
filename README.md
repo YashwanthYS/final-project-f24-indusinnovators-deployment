@@ -27,9 +27,10 @@ Generally, we directly collaborated on overall plans and ideas, and split up exe
 
 ## Running the software
 1. Clone the git respository locally and navigate into the directory: `cd final-project-f24-indusinnovators`
-2. Run `pip install -r requirements.txt` or `python -m pip install -r requirements.txt` to import all necessary packages and versions.
-3. Navigate to the code/ directory: `cd code`
-4. Run the homepage file using streamlit, which provides access to all other pages: `streamlit run HomePage.py `
+2. Install git-lfs with `git lfs install` and then pull the larger files from the remote repository with `git lfs pull`
+3. Run `pip install -r requirements.txt` or `python -m pip install -r requirements.txt` to import all necessary packages and versions.
+4. Navigate to the code/ directory: `cd code`
+5. Run the homepage file using streamlit, which provides access to all other pages: `streamlit run HomePage.py `
 
 ## Deliverables
 
