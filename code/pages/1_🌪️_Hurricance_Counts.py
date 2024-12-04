@@ -3,15 +3,18 @@ import streamlit as st
 import altair as alt
 from scipy.stats import pearsonr
 
+# Load data
 hurricane_data = pd.read_csv("./data/storm_filtered_data.csv")
 temperature_data = pd.read_csv("./data/df_global.csv")
 
+# Streamlit App Configuration
 st.set_page_config(page_title="Climate Trends", page_icon="🌎", layout="wide")
 st.title("🌎 Climate Trends: Hurricanes and Global Temperatures")
 st.markdown("""
 Explore the relationship between **hurricane occurrences** and **global temperature trends** from 1980 to 2013. Use the controls on the sidebar to filter data, choose what to display, and uncover insights about our changing planet. 🌍
 """)
 
+# Data Preparation
 hurricane_data['ISO_TIME'] = pd.to_datetime(hurricane_data['ISO_TIME'])
 hurricane_data['Year'] = hurricane_data['ISO_TIME'].dt.year
 hurricane_data['Month'] = hurricane_data['ISO_TIME'].dt.month
@@ -32,6 +35,7 @@ average_temperatures = temperature_data.groupby(['Year', 'Month_Name']).agg(
     LandAndOceanTemperature=('LandAndOceanAverageTemperature', 'mean')
 ).reset_index()
 
+# Sidebar Filters
 st.sidebar.header("🔧 Filters")
 selected_year_range = st.sidebar.slider(
     "Select Year Range:",
@@ -86,6 +90,7 @@ if show_hurricane_counts and (show_land_temp or show_land_and_ocean_temp):
     corr_coef, _ = pearsonr(merged_for_corr['Temperature'], merged_for_corr['Hurricane_Count'])
     st.sidebar.markdown(f"**Correlation Coefficient:** {corr_coef:.2f}")
 
+# Key Highlights
 st.markdown("### 🌟 Key Highlights")
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -97,8 +102,9 @@ with col2:
     hottest_temp = filtered_combined_data['LandAverageTemperature'].max()
     st.metric("Hottest Year (Land)", hottest_year, f"{hottest_temp:.2f} °C")
 with col3:
-    st.metric("Correlation Coefficient", f"{corr_coef:.2f}")
+    st.metric("Correlation Coefficient", f"{corr_coef:.2f}" if show_hurricane_counts else "N/A")
 
+# Visualization
 base = alt.Chart(filtered_temp_long).encode(
     x=alt.X('Year:O', axis=alt.Axis(title='Year', labelAngle=0))
 )
@@ -135,42 +141,44 @@ if show_land_temp or show_land_and_ocean_temp:
         height=400
     ).add_selection(
         temp_selection
-    )
+    ).interactive(bind_y=True)  # Allow zooming on the temperature y-axis only
     charts.append(temperature_lines)
 
 if charts:
     final_chart = alt.layer(*charts).resolve_scale(
-        y='independent'
+        y='independent'  # Ensure temperature and hurricane counts use independent y-axes
     ).configure_axis(
         labelFontSize=12,
         titleFontSize=14
     ).configure_legend(
         titleFontSize=14,
         labelFontSize=12
-    ).interactive()
+    )
     st.altair_chart(final_chart, use_container_width=True)
 else:
     st.warning("Please select at least one data series to display.")
 
-
+# Insights
 st.markdown("## 📖 Insights")
 st.markdown("""
 - **Temperature Trends**: The line graphs display yearly variations in global land and land and ocean temperatures.
 - **Hurricane Activity**: The bar chart illustrates yearly hurricane occurrences.
 - **Correlation**: The correlation coefficient indicates the relationship between rising temperatures and hurricane activity.
+
+**Explore More**: Zoom in and explore how large temperature fluctuations can affect the hurricane count.
 """)
 
 with st.expander("🌍 What Can We Learn?"):
     st.markdown("""
-    - **Global Warming and Hurricanes**: Rising global temperatures may not have a direct positive correlation with the number of hurricanes. Instead, sudden changes or drops in temperature after a sharp rise could create conditions favorable for hurricane formation, likely due to atmospheric depressions caused by the rapid temperature shifts.
-    - **Temperature Fluctuations and Hurricane Formation**: Temperature differences can cause disturbances in the atmosphere, contributing to the formation of more hurricanes in the following year.
+    - **Global Warming and Hurricanes**: Rising global temperatures may not have a direct positive correlation with the number of hurricanes. Instead, sudden changes or drops in temperature after a sharp rise could create conditions favorable for hurricane formation.
     - **Interactive Exploration**: Use the controls to focus on specific years or months to uncover detailed relationships between temperature trends and hurricane activity.
     """)
 
-
+# View Raw Data
 with st.expander("🗂️ View Raw Data"):
     st.write(filtered_combined_data)
 
+# Upload New Data
 st.sidebar.header("📤 Upload Your Own Data")
 uploaded_hurricane_data = st.sidebar.file_uploader("Upload Hurricane Data CSV", type="csv")
 uploaded_temperature_data = st.sidebar.file_uploader("Upload Temperature Data CSV", type="csv")
