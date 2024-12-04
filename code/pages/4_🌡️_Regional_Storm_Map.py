@@ -76,7 +76,7 @@ country_df['year'] = country_df['dt'].dt.year
 st.set_page_config(page_title="Regional Temperatures and Storms", page_icon="🌡️", layout="wide")
 st.title("🌡️ Regional Temperatures and Storms")
 st.markdown("""
-As global temperatures rise, regions of the world experience different storm seasons. Explore the globe below to see how regional storms have changed over the years, all inevitably affected by climate change.
+As global temperatures rise, regions of the world experience different storm seasons. Explore the globe below to see how **regional storm paths** have changed over the years, all inevitably affected by climate change. Please note that there is only temperature data up to August 2013, so the map will not display any temperature data for September 2013 onwards.
 """)
 
 ########## Filter data for visuals  ############################################################
@@ -138,7 +138,7 @@ fig.add_trace(go.Scattergeo(
     customdata = filtered_df['USA_SSHS'],
     mode = 'markers',
     marker=dict(
-        size=3,
+        size=9,
         color=filtered_df['USA_SSHS'],  
         colorscale='Viridis',
         colorbar=dict(title="Storm Category", x=1.3,titleside="right"),
@@ -156,9 +156,8 @@ fig.update_layout(
         lonaxis=dict(range=[-180, 180])
     ),
     margin=dict(l=0, r=0, t=0, b=0),
-    height=300,
-    width=18000
-   
+    height=600,
+    width=18000   
 )
 
 globe_fig = st.plotly_chart(fig)
