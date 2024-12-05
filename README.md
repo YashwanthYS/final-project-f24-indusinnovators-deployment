@@ -1,13 +1,12 @@
 # CMU Interactive Data Science Final Project : Global Temperatures and Their Impact on Hurricanes and Storms
+
+![Alt Text](EDA_Global_Temp_Data/summary.gif)
 * **Team members**:
   * Gunavardhan Akiti: gakiti@andrew.cmu.edu (contact person)
   * Yashwanth Surendra: yashwany@andrew.cmu.edu
   * Shrey Jain: shreyj@andrew.cmu.edu
   * Kaavya Subramanian: kaavyas@andrew.cmu.edu
  
- ## Summary Image 
- Update.
-
  ## Abstract
  Update.
 
