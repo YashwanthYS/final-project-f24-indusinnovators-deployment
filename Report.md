@@ -30,9 +30,12 @@ We have experimented with 3 models to study the dynamics of temperature and hurr
 
 - **i) Temperature Prediction Model**: Support Vector Regression (SVR) model was used to predict global Land and Ocean Average Temperature using daily temperature records from 1980 to 2013. The features included Year, Month, and Day, while the target variable was LandAndOceanAverageTemperature. Missing values were removed, and the data was split into training and testing sets in an 80-20 ratio. We used an rbf kernel to capture non-linear relationships, with hyperparameters C=100 for regularization and gamma=0.1 to control the influence of data points in the feature space. The model achieved a Mean Absolute Error (MAE) of 0.094 and a Root Mean Squared Error (RMSE) of 0.123, which means we are effectively able to model global temperature trends and provide reliable predictions of climate patterns as shown on test data in figure.
 
-![SVR Predictions](code/images/svr_temperature_predictions.png)
+<p align="center">
+  <img src="code/images/svr_temperature_predictions.png" alt="SVR Predictions" style="width:50%;">
+  <br>
+  <em>Figure 1: SVR model Predictions on test data.</em>
+</p>
 
-*Figure 1: SVR model Presictions on test data.*
 
 
 - **ii) Hurricane Intensity Prediction Model**: Random Forest Classifier was employed to predict the USA_SSHS category of hurricanes, using meteorological and temporal features from a merged dataset. The features included latitude LAT, longitude LON, LandAndOceanAverageTemperature (temperature predictor model output will be used as shown in figure), month, day and year. Missing data was handled by removing incomplete records, and the dataset was split into an 80-20 training and testing split. We investigated and found that there was class imbalance(40% of the labels were class 2 intensity hurricanes) and addressed that using SMOTE (Synthetic Minority Oversampling Technique), significantly improving the balance of the training set. The input features were scaled using StandardScaler for uniformity. The model, with its ensemble learning approach, was trained on the resampled data and achieved an accuracy score of 0.908 on the test set. Furthermore, we calculated relaxed accuracy which was 97.9% (±1) which highlights the model’s predictive capability even with minor deviations in true labels.
