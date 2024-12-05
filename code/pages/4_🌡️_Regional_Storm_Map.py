@@ -5,6 +5,8 @@ import streamlit as st
 import pycountry
 
 
+st.set_page_config(page_title="Regional Storm Map", page_icon="🌎", layout="wide")
+
 @st.cache_data
 def load(url):
     return pd.read_json(url)

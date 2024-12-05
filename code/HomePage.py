@@ -1,5 +1,6 @@
 import streamlit as st
 
+st.set_page_config(page_title="HomePage", page_icon="🌎", layout="wide")
 st.header(":earth_africa: _Global Temperatures and Their Impact on Hurricanes and Storms_")
 
 st.markdown("""

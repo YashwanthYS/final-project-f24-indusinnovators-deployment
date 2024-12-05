@@ -3,6 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import altair as alt
 
+
+st.set_page_config(page_title="Severity Levels", page_icon="🌎", layout="wide")
 st.title("🌪️ Global Storm Severity Levels Visualization vs Yearly Changes")
 
 storm_csv = "./data/storm_filtered_data.csv"
@@ -12,6 +14,7 @@ storm_df = pd.read_csv(storm_csv, index_col=0)
 storm_df['ISO_TIME'] = pd.to_datetime(storm_df['ISO_TIME'])
 storm_df['year'] = storm_df['ISO_TIME'].dt.year
 storm_df['month'] = storm_df['ISO_TIME'].dt.month
+storm_df = storm_df.groupby(["SID"]).agg({"USA_SSHS": "max", "year": "max", "month": "max", "ISO_TIME": "max"}).reset_index()
 storm_df['month_name'] = storm_df['ISO_TIME'].dt.strftime('%B')
 storm_df_filtered = storm_df[~storm_df["USA_SSHS"].isin([-5, -4, -3, -2, -1, 0])]
 
@@ -25,7 +28,7 @@ start_year, end_year = st.sidebar.slider(
     "Select Year Range:",
     min_value=1980,
     max_value=2023,
-    value=(2006, 2016),  # Default range
+    value=(2000, 2016),  # Default range
     step=1,
 )
 month_options = ["All Months"] + list(storm_df_filtered['month_name'].unique())

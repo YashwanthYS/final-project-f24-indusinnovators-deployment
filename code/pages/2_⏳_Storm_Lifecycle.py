@@ -5,6 +5,7 @@ import altair as alt
 from vega_datasets import data
 
 
+st.set_page_config(page_title="Storm Lifecycle", page_icon="🌎", layout="wide")
 st.title("Global Storm Visualization")
 st.markdown("This interactive dashboard demonstrates storms from where and when they originated and tracks them across their journey. This visualization helps explain the lifecycle of storms.")
 
