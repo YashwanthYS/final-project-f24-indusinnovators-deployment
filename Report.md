@@ -40,6 +40,13 @@ We have experimented with 3 models to study the dynamics of temperature and hurr
 
 - **ii) Hurricane Intensity Prediction Model**: Random Forest Classifier was employed to predict the USA_SSHS category of hurricanes, using meteorological and temporal features from a merged dataset. The features included latitude LAT, longitude LON, LandAndOceanAverageTemperature (temperature predictor model output will be used as shown in figure 2), month, day and year. Missing data was handled by removing incomplete records, and the dataset was split into an 80-20 training and testing split. We investigated and found that there was class imbalance(40% of the labels were class 2 intensity hurricanes) and addressed that using SMOTE (Synthetic Minority Oversampling Technique), significantly improving the balance of the training set. The input features were scaled using StandardScaler for uniformity. The model, with its ensemble learning approach, was trained on the resampled data and achieved an accuracy score of 0.908 on the test set. Furthermore, we calculated relaxed accuracy which was 97.9% (±1) which highlights the model’s predictive capability even with minor deviations in true labels.
 
+<p align="center">
+  <img src="code/images/ModelsBlockDiagram.png" alt="lstm model" style="width:60%;">
+  <br>
+  <em>Figure 2: High Level Flow showing how both models are related</em>
+</p>
+
+
 - **iii) Hurricane Characteristics Prediction Model**: We created a hybrid model that used LSTM layers for sequential storm data and dense layers for static features to predict hurricane category (USA_SSHS), wind speed, and pressure. It combined time-series features like wind and pressure with static attributes like temperature and location, trained with MinMax scaling and mean squared error. But only less than 10% of the reading recording for each hurricane had the characteristics such as wind speed and pressure. So, in other words the dataset was too sparse and the model ended up overfitting and led to poor generalization as shown from the figure 3. Therefore, it is used in the final implementation.
 
 <p align="center">
