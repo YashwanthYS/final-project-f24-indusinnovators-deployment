@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 
 st.set_page_config(page_title="HomePage", page_icon="🌎", layout="wide")
 st.header(":earth_africa: _Global Temperatures and Their Impact on Hurricanes and Storms_")
@@ -8,8 +9,16 @@ Welcome to the interactive platform for exploring the relationship between **glo
 This project aims to analyze historical and current data to provide insights into how climatic factors influence these phenomena.
 """)
 
-st.markdown("## 🚧 _Under Construction_")
-st.markdown("Homepage being developed. Please check back later!")
+file_ = open("images/homepage.gif", 'rb')
+contents = file_.read()
+data_url = base64.b64encode(contents).decode("utf-8")
+file_.close()
+
+# Display the GIF using markdown
+st.markdown(
+    f'<img src="data:image/gif;base64,{data_url}" alt="gif">',
+    unsafe_allow_html=True,
+)
 
 st.markdown("""
 ### Data Source
@@ -21,11 +30,11 @@ The data used in this project is compiled from reputable sources, including:
 st.markdown("""
 ### Explore the Dashboards
 Use the sidebar on the left to navigate between dashboards. Each dashboard offers an in-depth exploration of different aspects:
-- Trends in **global temperatures** over decades with hurricane counts.
-- Storm life cycle (variation over each day)
-- Serverity levels of the storms over time
-- The relationship between **land and ocean temperatures** and hurricane activity.
-- Geographic patterns and their correlation with **storm intensity**.
+- ⁠Trends in **global temperatures** over decades with hurricane counts.
+- ⁠Storm life cycle (variation over each day)
+- ⁠Severity levels of the storms over time
+- **Regional** storm and temperature patterns over time
+- ⁠Predictions of **future temperatures** and **hurricane season intensity** .
 """)
 
 st.markdown("""
