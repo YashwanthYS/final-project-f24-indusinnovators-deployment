@@ -28,22 +28,51 @@ There are mainly 4 different visualizations that tell a story of how temperature
 ### b) Modelling
 We have experimented with 3 models to study the dynamics of temperature and hurricanes - the first one was used to predict temperature, second was used hurricane intensity and the last one was used to estimate its characteristics. Let’s go through each of them in detail.
 
-- **i) Temperature Prediction Model**: Support Vector Regression (SVR) model was used to predict global Land and Ocean Average Temperature using daily temperature records from 1980 to 2013. The features included Year, Month, and Day, while the target variable was LandAndOceanAverageTemperature. Missing values were removed, and the data was split into training and testing sets in an 80-20 ratio. We used an rbf kernel to capture non-linear relationships, with hyperparameters C=100 for regularization and gamma=0.1 to control the influence of data points in the feature space. The model achieved a Mean Absolute Error (MAE) of 0.094 and a Root Mean Squared Error (RMSE) of 0.123, which means we are effectively able to model global temperature trends and provide reliable predictions of climate patterns as shown on test data in figure.
+- **i) Temperature Prediction Model**: Support Vector Regression (SVR) model was used to predict global Land and Ocean Average Temperature using daily temperature records from 1980 to 2013. The features included Year, Month, and Day, while the target variable was LandAndOceanAverageTemperature. Missing values were removed, and the data was split into training and testing sets in an 80-20 ratio. We used an rbf kernel to capture non-linear relationships, with hyperparameters C=100 for regularization and gamma=0.1 to control the influence of data points in the feature space. The model achieved a Mean Absolute Error (MAE) of 0.094 and a Root Mean Squared Error (RMSE) of 0.123, which means we are effectively able to model global temperature trends and provide reliable predictions of climate patterns as shown on test data in figure 1.
 
 <p align="center">
-  <img src="code/images/svr_temperature_predictions.png" alt="SVR Predictions" style="width:50%;">
+  <img src="code/images/svr_temperature_predictions.png" alt="SVR Predictions" style="width:60%;">
   <br>
   <em>Figure 1: SVR model Predictions on test data.</em>
 </p>
 
 
 
-- **ii) Hurricane Intensity Prediction Model**: Random Forest Classifier was employed to predict the USA_SSHS category of hurricanes, using meteorological and temporal features from a merged dataset. The features included latitude LAT, longitude LON, LandAndOceanAverageTemperature (temperature predictor model output will be used as shown in figure), month, day and year. Missing data was handled by removing incomplete records, and the dataset was split into an 80-20 training and testing split. We investigated and found that there was class imbalance(40% of the labels were class 2 intensity hurricanes) and addressed that using SMOTE (Synthetic Minority Oversampling Technique), significantly improving the balance of the training set. The input features were scaled using StandardScaler for uniformity. The model, with its ensemble learning approach, was trained on the resampled data and achieved an accuracy score of 0.908 on the test set. Furthermore, we calculated relaxed accuracy which was 97.9% (±1) which highlights the model’s predictive capability even with minor deviations in true labels.
+- **ii) Hurricane Intensity Prediction Model**: Random Forest Classifier was employed to predict the USA_SSHS category of hurricanes, using meteorological and temporal features from a merged dataset. The features included latitude LAT, longitude LON, LandAndOceanAverageTemperature (temperature predictor model output will be used as shown in figure 2), month, day and year. Missing data was handled by removing incomplete records, and the dataset was split into an 80-20 training and testing split. We investigated and found that there was class imbalance(40% of the labels were class 2 intensity hurricanes) and addressed that using SMOTE (Synthetic Minority Oversampling Technique), significantly improving the balance of the training set. The input features were scaled using StandardScaler for uniformity. The model, with its ensemble learning approach, was trained on the resampled data and achieved an accuracy score of 0.908 on the test set. Furthermore, we calculated relaxed accuracy which was 97.9% (±1) which highlights the model’s predictive capability even with minor deviations in true labels.
 
-- **iii) Hurricane Characteristics Prediction Model**: We created a hybrid model that used LSTM layers for sequential storm data and dense layers for static features to predict hurricane category (USA_SSHS), wind speed, and pressure. It combined time-series features like wind and pressure with static attributes like temperature and location, trained with MinMax scaling and mean squared error. But only less than 10% of the reading recording for each hurricane had the characteristics such as wind speed and pressure. So, in other words the dataset was too sparse and the model ended up overfitting and led to poor generalization as shown from the figure. Therefore, it is used in the final implementation.
+- **iii) Hurricane Characteristics Prediction Model**: We created a hybrid model that used LSTM layers for sequential storm data and dense layers for static features to predict hurricane category (USA_SSHS), wind speed, and pressure. It combined time-series features like wind and pressure with static attributes like temperature and location, trained with MinMax scaling and mean squared error. But only less than 10% of the reading recording for each hurricane had the characteristics such as wind speed and pressure. So, in other words the dataset was too sparse and the model ended up overfitting and led to poor generalization as shown from the figure 3. Therefore, it is used in the final implementation.
+
+<p align="center">
+  <img src="code/images/predicted_vs_actual_grid.png" alt="lstm model" style="width:60%;">
+  <br>
+  <em>Figure 3: LSTM time series prediction on entire data</em>
+</p>
+
 
 ### c) Model Agnostics
-Since there are only two possible features(date, position) for the first model to predict the temperature, we did not perform model agnostics as it is understood that both are necessary features. For hurricane intensity model, we started with LAT', 'LON', 'WMO_WIND', 'WMO_PRES', 'LandAverageTemperature', 'LandAndOceanAverageTemperature’ as features and experimented with all the classical ML algorithms and random forest gave the best performance in terms of accuracy. We went ahead with random forest to perform model agnostics. First, we chose to plot the feature correlation matrix as shown in the figure and saw that 'LandAverageTemperature' and 'LandAndOceanAverageTemperature’ are highly related (correlation value of 1.0). So, removed the redundant feature 'LandAverageTemperature'. Next, we examined the feature importance bar chart as shown in figure to see if there are any features that are not contributing to the target (hurricane intensity). To further understand the predictions of the model and analyze feature importance at the instance level, we performed LIME (Local Interpretable Model-agnostic Explanations) that helps explain the contribution of individual features (e.g., latitude, longitude, wind speed, pressure) to the model's prediction for a specific instance. So, it provided insights into how the features influenced the predicted hurricane intensity, making the model's decision-making process more transparent. For example, the analysis showed that features like wind speed and pressure often had the highest impact on the predictions for severe storms and other contributions for each of the classes is shown in the figure. Finally, for the time series LSTM model, we noticed early on that it did not perform well on new inputs due to overfitting and did not continue with any deep analysis, since we already came to the conclusion that the data set was too sparse to train a deep learning model.
+Since there are only two possible features(date, position) for the first model to predict the temperature, we did not perform model agnostics as it is understood that both are necessary features. For hurricane intensity model, we started with LAT', 'LON', 'WMO_WIND', 'WMO_PRES', 'LandAverageTemperature', 'LandAndOceanAverageTemperature’ as features and experimented with all the classical ML algorithms and random forest gave the best performance in terms of accuracy. We went ahead with random forest to perform model agnostics. First, we chose to plot the feature correlation matrix as shown in the figure 4 and saw that 'LandAverageTemperature' and 'LandAndOceanAverageTemperature’ are highly related (correlation value of 1.0). So, removed the redundant feature 'LandAverageTemperature'. 
+
+<p align="center">
+  <img src="code/images/feature_correlation_matrix.png" alt="Feature correlation" style="width:60%;">
+  <br>
+  <em>Figure 4: Feature correlation matrix</em>
+</p>
+
+Next, we examined the feature importance bar chart as shown in figure 5 to see if there are any features that are not contributing to the target (hurricane intensity). 
+
+<p align="center">
+  <img src="code/images/feature_importances.png" alt="random forest model" style="width:60%;">
+  <br>
+  <em>Figure 5: Feature importance for random forest model</em>
+</p>
+
+To further understand the predictions of the model and analyze feature importance at the instance level, we performed LIME (Local Interpretable Model-agnostic Explanations) that helps explain the contribution of individual features (e.g., latitude, longitude, wind speed, pressure) to the model's prediction for a specific instance. So, it provided insights into how the features influenced the predicted hurricane intensity, making the model's decision-making process more transparent. For example, the analysis showed that features like wind speed and pressure often had the highest impact on the predictions for severe storms and other contributions for each of the classes is shown in the figure 6. Finally, for the time series LSTM model, we noticed early on that it did not perform well on new inputs due to overfitting and did not continue with any deep analysis, since we already came to the conclusion that the data set was too sparse to train a deep learning model.
+
+<p align="center">
+  <img src="code/images/LIMEAnalysis" alt="random forest model" style="width:70%;">
+  <br>
+  <em>Figure 6: LIME Analysis of random forest predictions</em>
+</p>
 
 ## Results
 
