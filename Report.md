@@ -83,6 +83,19 @@ To further understand the predictions of the model and analyze feature importanc
 
 ## Results
 
+Our application provides several exploratory visualizations of hurricane and temperature data, as well as a page to forecast future weather conditions. 
+
+A simple way to quantify a hurricane season is to look at how many storms occur. To directly address our research question, we plot the number of storms against the yearly average temperature. We can observe how the number of hurricanes have changed over time, along with average land and ocean temperature. It is clear that there is not a directly positive relationship between hurricane counts and global temperatures, and that more specific insights are necessary to truly understand the relationship between the two.
+
+We also examine changes in hurricane severity in greater depth. Our application has a bubble chart that visualizes the number of storms in each category per year, with categories corresponding to categories 1 to 5 of the USA Saffir-Sampson Hurricane Wind Scale. To provide a different way of looking at the data, there is a stacked bar chart on the same page. We can observe that the composition of hurricane storms per year does change, with a greater ratio of category 4 and category 5 hurricanes in more recent years. 
+
+Delving deeper into hurricane lifecycles, we plot the hurricane movements from 1980 to 2013 without temperature. This reveals, as is generally known, that hurricanes originate in the ocean and travel inland. What becomes clear is that hurricanes have longer paths in more recent years. This becomes more evident when looking at the next map, which plots the entire path of a hurricane in a given year and month. We also observe the intensity can change more quickly. 
+ 
+To develop more regionally focused insights, the second map also categorized basin storm data over the years, along with country temperature data. Depending on the filtered year and month, the map shows the path and intensity of all recorded hurricanes. We synthesize this information by reporting the basins with the most storms and most intense activity, and provide a supporting area chart to track storm count and intensity over the years. Our problem is about global storm patterns, but regional trends can help quantify impact for people who live in different parts of the world.
+
+Having gained a better understanding of the specific trends that hurricane seasons have exhibited in conjunction with temperature, we provide a user interface for future prediction. A user interested in climatology may find this page informative. By selecting a date and a location on the world map, our model generates a prediction of the temperature in that area on that day.  That temperature is then used to predict the intensity of a potential hurricane at that location. We provide visual reports of our model against existing temperatures to validate accuracy. Users may be able to observe that there is a positive correlation between temperature and hurricane intensity. 
+
+
 ## Discussion
 
 ## Future Work
