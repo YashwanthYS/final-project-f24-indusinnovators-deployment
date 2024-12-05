@@ -76,7 +76,7 @@ Next, we examined the feature importance bar chart as shown in figure 5 to see i
 To further understand the predictions of the model and analyze feature importance at the instance level, we performed LIME (Local Interpretable Model-agnostic Explanations) that helps explain the contribution of individual features (e.g., latitude, longitude, wind speed, pressure) to the model's prediction for a specific instance. So, it provided insights into how the features influenced the predicted hurricane intensity, making the model's decision-making process more transparent. For example, the analysis showed that features like wind speed and pressure often had the highest impact on the predictions for severe storms and other contributions for each of the classes is shown in the figure 6. Finally, for the time series LSTM model, we noticed early on that it did not perform well on new inputs due to overfitting and did not continue with any deep analysis, since we already came to the conclusion that the data set was too sparse to train a deep learning model.
 
 <p align="center">
-  <img src="code/images/LIMEAnalysis" alt="random forest model" style="width:70%;">
+  <img src="code/images/LIMEAnalysis.png" alt="random forest model" style="width:70%;">
   <br>
   <em>Figure 6: LIME Analysis of random forest predictions</em>
 </p>
