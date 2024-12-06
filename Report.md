@@ -97,6 +97,16 @@ Having gained a better understanding of the specific trends that hurricane seaso
 
 
 ## Discussion
+After conducting extensive visual and predictive analyses to explore the relationship between hurricanes and rising global temperatures, we validated several key insights derived from 30 years of historical data. 
+
+Initially, we examined hurricane counts and observed that the correlation between the number of recorded hurricanes and increasing global temperatures was not immediately apparent. This prompted a deeper investigation into storm lifecycles, which revealed that while hurricanes have generally short lifespans, their intensity has notably increased in recent years. 
+
+This finding led us to evaluate shifts in hurricane severity categories. A detailed analysis of the severity-level bubble chart highlighted a fluctuating count of hurricanes across all categories. However, a clear trend emerged: an average increase in the frequency of Category 4 and 5 hurricanes, accompanied by a decrease in Categories 1 and 2. 
+
+To further substantiate these findings, we expanded our analysis to examine whether the observed patterns were localized or indicative of a global phenomenon. By evaluating data across multiple regional basins, where we identified consistent trends of intensifying hurricanes. Notably, the evidence is more apparent with Western North Pacific and North Indian basins, reinforcing the conclusion that this trend is global in scope.
+
+These insights provide compelling evidence that rising global temperatures are driving a significant and widespread shift in hurricane severity. This alarming trend underscores the profound impact of climate change on weather systems. Without immediate efforts to mitigate global warming, the escalating severity of hurricanes threatens to result in devastating socioeconomic and environmental consequences on a global scale.
+
 
 ## Future Work
 Global warming is a long-term phenomenon spanning over a century rather than a few decades. Therefore, future research should aim to expand the dataset to encompass the period from the onset of the industrial age to the present. This broader time frame will enhance the robustness of insights and increase the confidence in findings.

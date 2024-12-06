@@ -3,6 +3,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import altair as alt
 
+@st.cache_data
+def split_data(storm_df_filtered, start_year, end_year, selected_month):
+    if selected_month != "All Months":
+        storm_df_filtered = storm_df_filtered[storm_df_filtered['month_name'] == selected_month]
+
+    return storm_df_filtered[(storm_df_filtered["year"] >= start_year) & (storm_df_filtered["year"] <= end_year)]
 
 st.set_page_config(page_title="Severity Levels", page_icon="🌎", layout="wide")
 st.title("🌪️ Global Storm Severity Levels Visualization vs Yearly Changes")
@@ -34,10 +40,7 @@ start_year, end_year = st.sidebar.slider(
 month_options = ["All Months"] + list(storm_df_filtered['month_name'].unique())
 selected_month = st.sidebar.selectbox("Filter by Month:", options=month_options, index=0)
 
-if selected_month != "All Months":
-    storm_df_filtered = storm_df_filtered[storm_df_filtered['month_name'] == selected_month]
-
-filtered_data = storm_df_filtered[(storm_df_filtered["year"] >= start_year) & (storm_df_filtered["year"] <= end_year)]
+filtered_data = split_data(storm_df_filtered, start_year, end_year, selected_month)
 
 # Aggregate counts per year and category
 category_counts = filtered_data.groupby(["year", "USA_SSHS"]).agg(counts=("USA_SSHS", "sum")).reset_index()  
