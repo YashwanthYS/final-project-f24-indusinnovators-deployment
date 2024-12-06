@@ -161,7 +161,7 @@ else:
 # Insights
 st.markdown("## 📖 Insights")
 st.markdown("""
-- **Temperature Trends**: The line graphs display yearly variations in global land and land and ocean temperatures.
+- **Temperature Trends**: The line graphs display yearly variations in global land and ocean temperatures.
 - **Hurricane Activity**: The bar chart illustrates yearly hurricane occurrences.
 - **Correlation**: The correlation coefficient indicates the relationship between rising temperatures and hurricane activity.
 
