@@ -8,7 +8,7 @@
   * Kaavya Subramanian: kaavyas@andrew.cmu.edu
  
  ## Abstract
- The world is getting warmer every day, and so is the debate over whether the human race should be concerned about it. With many extreme weather events in recent times affecting millions, we seek to discover evidence of this phenomenon being caused by global warming. To this resolve, we first visualize evidence by combining two datasets that recorded every extreme weather event between 1980 and 2013 and the daily global temperatures. We first contrast the yearly hurricane count during these years with the average land and ocean temperatures. While that doesn't give an apparent correlation, we also visualize the path of these hurricanes on a 2D globe and get glimpses of how they get more severe across the years. This led us to visualize the hurricane counts across different severity levels and give a better indication of a rise in the number of category 4 and 5 hurricanes and a trend spanning multiple years. Finally, to bring it all together, we see the effects of these events on land by tracing their path across different months and years. With this evidence, we developed a prediction model for global temperature and the expected hurricane severity at the user's input location and date. A Support Vector Regression model is used for predicting the temperature and Random Forest model is used to predict the hurricane intensity with an accuracy of 92% on held out test data.
+The world is getting warmer every day, and so is the debate over whether the human race should be concerned about it. In recent times, extreme weather events have affected millions. To this end, we seek to discover evidence of this phenomenon being caused by global warming, specficially looking at hurricanes and storms.We first visualize evidence by integrating two datasets that record every extreme weather event between 1980 and 2013, as well as monthly daily global temperatures. We contrast the yearly hurricane count during these years with the average land and ocean temperatures. While that doesn't yield an apparent correlation, we also visualize the path of these hurricanes on a 2D globe and view glimpses of how they get become more severe over the years. This led us to observe hurricane counts across different severity levels, which better indicate a rise in the number of category 4 and 5 hurricanes, a trend that spans multiple years. Finally, to bring it all together, we saw the effects of these events on land by tracing their path across different months and years. With this evidence, we developed a prediction model for global temperature and the expected hurricane severity at the user's input location and date. A Support Vector Regression model is used for predicting the temperature and Random Forest model is used to predict the hurricane intensity with an accuracy of 92% on held out test data.
 
 ## Streamlit App
 Update.
@@ -26,10 +26,11 @@ Generally, we directly collaborated on overall plans and ideas, and split up exe
 
 ## Running the software
 1. Clone the git respository locally and navigate into the directory: `cd final-project-f24-indusinnovators`
-2. Install git-lfs with `git lfs install` and then pull the larger files from the remote repository with `git lfs pull`
-3. Run `pip install -r requirements.txt` or `python -m pip install -r requirements.txt` to import all necessary packages and versions.
-4. Navigate to the code/ directory: `cd code`
-5. Run the homepage file using streamlit, which provides access to all other pages: `streamlit run HomePage.py `
+2. Ensure the system has git-lfs installed. This is done specific to the operating sytem; for example, on a Mac with homebrew, the following command can be used :`brew install git-lfs`
+3. Install git-lfs with `git lfs install` and then pull the larger files from the remote repository with `git lfs pull`
+4. Run `pip install -r requirements.txt` or `python -m pip install -r requirements.txt` to import all necessary packages and versions.
+5. Navigate to the code/ directory: `cd code`
+6. Run the homepage file using streamlit, which provides access to all other pages: `streamlit run HomePage.py `
 
 ## Deliverables
 
