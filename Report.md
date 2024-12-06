@@ -99,3 +99,9 @@ Having gained a better understanding of the specific trends that hurricane seaso
 ## Discussion
 
 ## Future Work
+Global warming is a long-term phenomenon spanning over a century rather than a few decades. Therefore, future research should aim to expand the dataset to encompass the period from the onset of the industrial age to the present. This broader time frame will enhance the robustness of insights and increase the confidence in findings.
+
+Additionally, future work could explore the development of dynamic visualizations to fully depict the evolution of hurricanes. These visualizations would capture their entire lifecycle, from their formation—characterized by initial pressure and wind speed—to their progression, including their movement and categorization over time. Such visual tools would not only improve the understanding of hurricane dynamics but also provide an engaging and intuitive representation of their behavior.
+
+This holistic approach will pave the way for more informed decision-making in climate research on hurricane disaster management.
+
