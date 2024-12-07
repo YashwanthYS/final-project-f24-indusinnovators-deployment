@@ -3,6 +3,7 @@ import altair as alt
 import plotly.graph_objects as go
 import streamlit as st
 import pycountry
+import os
 
 @st.cache_data
 def load(url):
@@ -54,13 +55,16 @@ month_dict = {1: 'January', 2: 'February', 3 : 'March', 4: 'April', 5: 'May', 6:
 ################################################################################################
 
 ##########  Read in and format data  ###########################################################
-storm_csv = "data/storm_filtered_data.csv"
-country_csv = "data/df_country.csv"
-global_csv = "data/df_global.csv"
+script_dir = os.path.dirname(os.path.abspath(__file__)) 
+root_folder = os.path.dirname(script_dir)              
 
+storm_csv = os.path.join(root_folder, "data", "storm_filtered_data.csv")
+country_csv = os.path.join(root_folder, "data", "df_country.csv")
+global_csv = os.path.join(root_folder, "data", "df_global.csv")
 
 storm_df = pd.read_csv(storm_csv)
 country_df = pd.read_csv(country_csv)
+global_df = pd.read_csv(global_csv)
 
 storm_df['ISO_TIME'] = pd.to_datetime(storm_df['ISO_TIME'])
 storm_df['storm_month'] = storm_df['ISO_TIME'].dt.month

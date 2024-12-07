@@ -6,10 +6,17 @@ import folium
 from streamlit_folium import st_folium
 import uuid
 import base64
+import os
 
-rf_model = pickle.load(open("./pages/models/random_forest_model.pkl", "rb"))
-scaler = pickle.load(open("./pages/models/scaler.pkl", "rb"))
-svr_model = pickle.load(open("./pages/models/svr_temperature_model.pkl", "rb"))
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+rf_model_path = os.path.join(script_dir, "models", "random_forest_model.pkl")
+scaler_path = os.path.join(script_dir, "models", "scaler.pkl")
+svr_model_path = os.path.join(script_dir, "models", "svr_temperature_model.pkl")
+
+rf_model = pickle.load(open(rf_model_path, "rb"))
+scaler = pickle.load(open(scaler_path, "rb"))
+svr_model = pickle.load(open(svr_model_path, "rb"))
 
 data = {
     "Class": ["-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5"],
@@ -70,8 +77,11 @@ def encode_icon_to_base64(icon_path):
     with open(icon_path, "rb") as icon_file:
         return base64.b64encode(icon_file.read()).decode()
 
-location_pin_base64 = encode_icon_to_base64("./pages/icons/location-pin.png")
-hurricane_base64 = encode_icon_to_base64("./pages/icons/hurricane.png")
+location_pin_icon_path = os.path.join(script_dir, "icons", "location-pin.png")
+hurricane_icon_path = os.path.join(script_dir, "icons", "hurricane.png")
+
+location_pin_base64 = encode_icon_to_base64(location_pin_icon_path)
+hurricane_base64 = encode_icon_to_base64(hurricane_icon_path)
 
 def create_map():
     m = folium.Map(location=[25, -80], zoom_start=5)
@@ -255,8 +265,8 @@ with st.expander("🌡️ Temperature Prediction Model Details"):
     The plot below compares the **actual temperatures** with the **predicted temperatures** for the test dataset:
     """)
     
-    # Display the image
-    st.image("./pages/icons/svr_temperature_predictions.png", caption="SVR Temperature Predictions", use_column_width=True)
+    svr_image_path = os.path.join(script_dir, "icons", "svr_temperature_predictions.png")
+    st.image(svr_image_path, caption="SVR Temperature Predictions", use_column_width=True)
 
     st.markdown("""
     ### 🛡️ Key Takeaway:

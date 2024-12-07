@@ -2,10 +2,16 @@ import pandas as pd
 import streamlit as st
 import altair as alt
 from scipy.stats import pearsonr
+import os
 
-# Load data
-hurricane_data = pd.read_csv("./data/storm_filtered_data.csv")
-temperature_data = pd.read_csv("./data/df_global.csv")
+script_dir = os.path.dirname(os.path.abspath(__file__)) 
+root_folder = os.path.dirname(script_dir)           
+
+hurricane_data_path = os.path.join(root_folder, "data", "storm_filtered_data.csv")
+temperature_data_path = os.path.join(root_folder, "data", "df_global.csv")
+
+hurricane_data = pd.read_csv(hurricane_data_path)
+temperature_data = pd.read_csv(temperature_data_path)
 
 # Streamlit App Configuration
 st.set_page_config(page_title="Climate Trends", page_icon="🌎", layout="wide")

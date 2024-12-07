@@ -3,13 +3,19 @@ import pandas as pd
 import numpy as np
 import altair as alt
 from vega_datasets import data
+import os
 
 
 st.set_page_config(page_title="Storm Lifecycle", page_icon="🌎", layout="wide")
 st.title("Global Storm Visualization")
 st.markdown("This interactive dashboard demonstrates storms from where and when they originated and tracks them across their journey. This visualization helps explain the lifecycle of storms.")
 
-df = pd.read_csv('./data/storm_filtered_data.csv', skipinitialspace=True)
+script_dir = os.path.dirname(os.path.abspath(__file__)) 
+root_folder = os.path.dirname(script_dir)           
+
+hurricane_data_path = os.path.join(root_folder, "data", "storm_filtered_data.csv")
+
+df = pd.read_csv(hurricane_data_path, skipinitialspace=True)
 
 df['ISO_TIME'] = pd.to_datetime(df['ISO_TIME'])
 df_daily = df.groupby(['SID', 'SEASON', 'NUMBER', df['ISO_TIME'].dt.date]).agg({

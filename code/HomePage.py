@@ -1,5 +1,6 @@
 import streamlit as st
 import base64
+import os
 
 st.set_page_config(page_title="HomePage", page_icon="🌎", layout="wide")
 st.header(":earth_africa: _Global Temperatures and Their Impact on Hurricanes and Storms_")
@@ -9,7 +10,9 @@ Welcome to the interactive platform for exploring the relationship between **glo
 This project aims to analyze historical and current data to provide insights into how climatic factors influence these phenomena.
 """)
 
-file_ = open("images/homepage.gif", 'rb')
+root_folder = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+file_path = os.path.join(root_folder, "code/images", "homepage.gif")
+file_ = open(file_path, 'rb')
 contents = file_.read()
 data_url = base64.b64encode(contents).decode("utf-8")
 file_.close()

@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import altair as alt
+import os
 
 @st.cache_data
 def split_data(storm_df_filtered, start_year, end_year, selected_month):
@@ -13,9 +14,12 @@ def split_data(storm_df_filtered, start_year, end_year, selected_month):
 st.set_page_config(page_title="Severity Levels", page_icon="🌎", layout="wide")
 st.title("🌪️ Global Storm Severity Levels Visualization vs Yearly Changes")
 
-storm_csv = "./data/storm_filtered_data.csv"
+script_dir = os.path.dirname(os.path.abspath(__file__)) 
+root_folder = os.path.dirname(script_dir)           
 
-storm_df = pd.read_csv(storm_csv, index_col=0)
+hurricane_data_path = os.path.join(root_folder, "data", "storm_filtered_data.csv")
+
+storm_df = pd.read_csv(hurricane_data_path, index_col=0)
 
 storm_df['ISO_TIME'] = pd.to_datetime(storm_df['ISO_TIME'])
 storm_df['year'] = storm_df['ISO_TIME'].dt.year
