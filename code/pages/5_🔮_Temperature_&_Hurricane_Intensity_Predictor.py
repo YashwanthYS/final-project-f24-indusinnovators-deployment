@@ -89,7 +89,7 @@ hurricane_base64 = encode_icon_to_base64(hurricane_icon_path)
 def create_map():
     m = folium.Map(
         location=[0, 0],  
-        zoom_start=1.5,
+        zoom_start=1.4,
         tiles="OpenStreetMap", 
         no_wrap=True 
     )
