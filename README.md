@@ -29,8 +29,7 @@ Generally, we directly collaborated on overall plans and ideas, and split up exe
 2. Ensure the system has git-lfs installed. This is done specific to the operating sytem; for example, on a Mac with homebrew, the following command can be used :`brew install git-lfs`
 3. Install git-lfs with `git lfs install` and then pull the larger files from the remote repository with `git lfs pull`
 4. Run `pip install -r requirements.txt` or `python -m pip install -r requirements.txt` to import all necessary packages and versions.
-5. Navigate to the code/ directory: `cd code`
-6. Run the homepage file using streamlit, which provides access to all other pages: `streamlit run HomePage.py `
+5. Run the homepage file using streamlit, which provides access to all other pages: `streamlit run code/HomePage.py `
 
 ## Deliverables
 
@@ -41,6 +40,8 @@ Generally, we directly collaborated on overall plans and ideas, and split up exe
 ### Sketches
 
 - [X] Develop sketches/prototype of your project.
+
+Note: The copy of the repo is made public to allow deployment using streamlit cloud. Repo link: https://github.com/YashwanthYS/final-project-f24-indusinnovators-deployment
 
 ### Final deliverables
 

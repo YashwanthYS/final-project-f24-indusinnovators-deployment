@@ -13,10 +13,13 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 rf_model_path = os.path.join(script_dir, "models", "random_forest_model.pkl")
 scaler_path = os.path.join(script_dir, "models", "scaler.pkl")
 svr_model_path = os.path.join(script_dir, "models", "svr_temperature_model.pkl")
+predicted_values_path = os.path.join(script_dir, "models", "forecasted_temperatures.csv")
 
 rf_model = pickle.load(open(rf_model_path, "rb"))
 scaler = pickle.load(open(scaler_path, "rb"))
 svr_model = pickle.load(open(svr_model_path, "rb"))
+predicted_values_df = pd.read_csv(predicted_values_path)
+predicted_values_df['Date'] = pd.to_datetime(predicted_values_df['Date'], errors='coerce')
 
 data = {
     "Class": ["-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5"],
@@ -84,8 +87,13 @@ location_pin_base64 = encode_icon_to_base64(location_pin_icon_path)
 hurricane_base64 = encode_icon_to_base64(hurricane_icon_path)
 
 def create_map():
-    m = folium.Map(location=[25, -80], zoom_start=5)
-
+    m = folium.Map(
+        location=[0, 0],  
+        zoom_start=1.5,
+        tiles="OpenStreetMap", 
+        no_wrap=True 
+    )
+    
     if st.session_state['last_clicked']:
         lat = st.session_state['last_clicked'][0]
         lon = st.session_state['last_clicked'][1]
@@ -163,11 +171,16 @@ if predict_button:
             lat = float(lat)
             lon = float(lon)
 
-            temp_features = pd.DataFrame(
-                [[selected_date.year, month, day]],
-                columns=['Year', 'Month', 'Day']
-            )
-            predicted_temperature = svr_model.predict(temp_features)[0]
+            temperature_row = predicted_values_df.loc[
+                    (predicted_values_df['Date'].dt.year == selected_date.year) & 
+                    (predicted_values_df['Date'].dt.month == selected_date.month), 
+                    'Prediction'
+            ]
+
+            if len(temperature_row) > 0:
+                predicted_temperature = temperature_row.values[0]
+            else:
+                predicted_temperature = 16.0
 
             st.session_state['predicted_temperature'] = predicted_temperature
 
@@ -187,7 +200,7 @@ if predict_button:
                 st_folium(m, width=700, height=500, key=st.session_state['map_key'])
 
             prediction_placeholder.success(
-                f"**Predicted Temperature:** {predicted_temperature:.2f}°C  \n"
+                f"**Predicted Average Temperature:** {predicted_temperature:.2f}°C  \n"
                 f"**Predicted Hurricane Intensity:** {predicted_intensity}"
             )
 
